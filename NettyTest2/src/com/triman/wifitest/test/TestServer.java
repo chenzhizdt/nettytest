@@ -12,7 +12,7 @@ public class TestServer {
 	 */
 	public static void main(String[] args) {
 		MessageServer server = new MessageServer();
-		server.start("127.0.0.1", 9090);
+		server.start(9090, "Server");
 		
 		Scanner in = new Scanner(System.in);
 		
@@ -21,7 +21,7 @@ public class TestServer {
 			if(msg != null && msg.equals("0")){
 				break;
 			} else if (msg !=null && !msg.equals("")){
-				server.sendBroadcastMessage(new Message(msg, Message.REQUEST));
+				server.sendBroadcastMessage(new Message(msg, Message.NORMAL_MESSAGE, 0));
 			}
 		}
 		in.close();

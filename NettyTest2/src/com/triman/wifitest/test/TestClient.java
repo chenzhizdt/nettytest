@@ -12,7 +12,7 @@ public class TestClient {
 	 */
 	public static void main(String[] args) {
 		MessageClient client = new MessageClient();
-		client.start("127.0.0.1", 9090);
+		client.start("127.0.0.1", 9090, "Client");
 		
 		Scanner in = new Scanner(System.in);
 		
@@ -21,7 +21,7 @@ public class TestClient {
 			if(msg != null && msg.equals("0")){
 				break;
 			} else if (msg !=null && !msg.equals("")){
-				client.sendMessage(new Message(msg, Message.REQUEST));
+				client.sendMessage(new Message(msg, Message.NORMAL_MESSAGE, 1));
 			}
 		}
 		in.close();
